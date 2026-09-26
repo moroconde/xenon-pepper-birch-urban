@@ -62,15 +62,10 @@ function SobrePage() {
               nutrición y salud.
             </p>
             <p>
-              Soy médico y madre, por partida doble, a tiempo completo. Entiendo
-              las situaciones del día a día en la alimentación de los niños, la
-              organización del tiempo, la familia y la conciliación.
-            </p>
-            <p>
               Desde el inicio de mi carrera me interesó el trato con el
               paciente, la prevención y la comunicación para mejorar la salud.
               En la nutrición encontré respuestas a muchos de los problemas que
-              nos encontramos en consulta y en casa.
+              vemos en consulta: hábitos, patología, familia y día a día.
             </p>
             <p>
               He tratado a cientos de pacientes en mi consulta y en centros
@@ -90,7 +85,7 @@ function SobrePage() {
               de Cantabria
             </li>
             <li>
-              Colegiada Nº {site.colegiado} · {site.colegio}
+              Colegiada en el {site.colegio}
             </li>
             <li>Director técnico responsable: {site.director}</li>
           </ul>

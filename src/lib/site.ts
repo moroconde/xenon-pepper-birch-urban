@@ -23,9 +23,9 @@ export const site = {
   colegio: "Colegio Oficial de Médicos de Cantabria",
   director: "Dra. Miriam Eguía Llosa",
   social: {
-    facebook: "https://es-es.facebook.com/MiriamEguiaMedicoNutricion",
-    x: "https://twitter.com/NutriMeguia",
-    linkedin: "https://es.linkedin.com/pub/miriam-eguia-llosa/86/a74/781",
+    facebook: "https://www.facebook.com/MiriamEguiaMedicoNutricion",
+    x: "https://x.com/NutriMeguia",
+    instagram: "https://www.instagram.com/nutrimeguia/",
     youtube:
       "https://www.youtube.com/playlist?list=PLx5R255huHhdkL0MwpBdoIVSKechXwwH7",
   },
@@ -133,7 +133,7 @@ export const serviceGroups = [
   {
     id: "formacion",
     title: "Charlas y formación",
-    image: "/brand/slide3.jpg",
+    image: "/brand/formacion.jpg",
     intro:
       "Promoción de la salud para instituciones, empresas y medios: rigor clínico, lenguaje cercano.",
     items: [

@@ -95,17 +95,40 @@ h1, h2, h3, .font-display {
 
 .carousel-me .carousel-item img {
   width: 100%;
-  height: min(62vh, 520px);
+  height: min(62vh, 560px);
   object-fit: cover;
   object-position: center;
 }
 .carousel-me .carousel-caption {
-  background: linear-gradient(transparent, rgb(28 26 23 / 0.55));
+  background: linear-gradient(transparent, rgb(28 26 23 / 0.62));
   left: 0; right: 0; bottom: 0;
-  padding: 2.5rem 1.5rem 1.5rem;
+  padding: 2.5rem 1.5rem 1.6rem;
   text-align: left;
 }
 .carousel-indicators [data-bs-target] { width: 10px; height: 10px; border-radius: 50%; }
+
+.social-me {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+}
+.social-me a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  color: #f4faf6;
+}
+.social-me a:hover {
+  background: rgb(255 255 255 / 0.12);
+  color: #fff;
+  border-color: rgb(255 255 255 / 0.45);
+}
+.social-me svg { width: 1.05rem; height: 1.05rem; }
 
 .band { background: var(--cream); border-block: 1px solid var(--line); }
 .card-me {

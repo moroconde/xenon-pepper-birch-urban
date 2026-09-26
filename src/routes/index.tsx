@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { VoucherCard } from "@/components/voucher";
 import { Button } from "@/components/ui";
 import { site } from "@/lib/site";
 
@@ -16,13 +15,13 @@ const slides = [
     src: "/brand/slide2.jpg",
     kicker: "Hábitos sostenibles",
     caption: "Planes que caben en la mesa de casa.",
-    alt: "Alimentación real para el día a día",
+    alt: "Mesa con alimentación real para el día a día",
   },
   {
     src: "/brand/slide3.jpg",
     kicker: "Criterio médico",
     caption: "Analíticas, historia clínica y seguimiento.",
-    alt: "Nutrición clínica y seguimiento",
+    alt: "Escritorio de nutrición clínica",
   },
 ];
 
@@ -44,13 +43,18 @@ function HomeCarousel() {
   }, []);
   const slide = slides[i];
   return (
-    <div className="relative overflow-hidden bg-ink">
-      <img
-        src={slide.src}
-        alt={slide.alt}
-        className="h-[42vh] w-full object-cover sm:h-[56vh]"
-      />
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent px-4 py-6 sm:px-8">
+    <div className="relative h-[42vh] overflow-hidden bg-ink sm:h-[56vh]">
+      {slides.map((s, n) => (
+        <img
+          key={s.src}
+          src={s.src}
+          alt={n === i ? s.alt : ""}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+            n === i ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent px-4 py-6 sm:px-8">
         <p className="text-xs uppercase tracking-[0.18em] text-cream/80">
           {slide.kicker}
         </p>
@@ -97,45 +101,12 @@ function Home() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link to="/bonos">Ver bonos de 5 y 10 sesiones</Link>
+            <Link to="/servicios">Ver servicios</Link>
           </Button>
         </div>
         <p className="mt-6 text-sm text-muted">
           {site.address} · {site.phone}
         </p>
-      </section>
-
-      <section className="border-y border-line bg-cream">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="max-w-xl">
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-sage-deep">
-                Bonos regalo
-              </p>
-              <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-                5 y 10 sesiones, en formato tarjeta.
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-soft">
-                Un detalle con el logotipo de la consulta. Personalízalo, descárgalo
-                e imprímelo, o pídelo listo para entregar.
-              </p>
-            </div>
-            <Button asChild variant="ink">
-              <Link to="/bonos">
-                Personalizar tarjetas
-                <ArrowRight />
-              </Link>
-            </Button>
-          </div>
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <Link to="/bonos" className="block transition-transform duration-200 hover:-translate-y-0.5">
-              <VoucherCard kind={5} face="front" />
-            </Link>
-            <Link to="/bonos" className="block transition-transform duration-200 hover:-translate-y-0.5">
-              <VoucherCard kind={10} face="front" />
-            </Link>
-          </div>
-        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
@@ -180,23 +151,23 @@ function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-cream/60">
-              Sobre la doctora
+              La consulta
             </p>
             <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
-              Médico, y madre a tiempo completo.
+              Nutrición médica, con tiempo para escucharte.
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-cream/80">
-              Licenciada en Medicina por la Universidad de Cantabria. Experta en
-              Nutrición y Planificación Dietética por la UCM. El retrato y la
-              trayectoria están en Sobre mí; aquí el trabajo de la consulta.
+              Dra. Miriam Eguía Llosa. Licenciada en Medicina por la Universidad
+              de Cantabria y experta en Nutrición y Planificación Dietética por
+              la UCM. Formación, trayectoria y forma de trabajar, en Sobre mí.
             </p>
             <Button asChild variant="cream" className="mt-8">
               <Link to="/sobre">Conóceme</Link>
             </Button>
           </div>
           <img
-            src="/brand/slide1.jpg"
-            alt="Espacio de consulta de nutrición médica"
+            src="/brand/consulta-rincon.jpg"
+            alt="Rincón de la consulta de nutrición médica"
             className="aspect-[16/10] w-full rounded-[1.75rem] object-cover"
           />
         </div>

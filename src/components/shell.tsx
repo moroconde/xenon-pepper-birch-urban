@@ -99,6 +99,74 @@ function Header() {
   );
 }
 
+function SocialIcon({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      className="inline-flex size-10 items-center justify-center rounded-full border border-cream/20 text-cream/85 transition-colors hover:border-cream/50 hover:bg-cream/10 hover:text-cream"
+    >
+      {children}
+    </a>
+  );
+}
+
+function SocialLinks() {
+  return (
+    <nav className="mt-5 flex flex-wrap gap-2" aria-label="Redes sociales">
+      <SocialIcon href={site.social.facebook} label="Facebook">
+        <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z"
+          />
+        </svg>
+      </SocialIcon>
+      <SocialIcon href={site.social.x} label="X">
+        <svg viewBox="0 0 24 24" className="size-3.5" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+          />
+        </svg>
+      </SocialIcon>
+      <SocialIcon href={site.social.instagram} label="Instagram">
+        <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden="true">
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+            stroke="currentColor"
+            strokeWidth="1.8"
+          />
+          <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+        </svg>
+      </SocialIcon>
+      <SocialIcon href={site.social.youtube} label="YouTube">
+        <svg viewBox="0 0 24 24" className="size-4" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M23 8s-.2-1.4-.8-2c-.8-.8-1.6-.8-2-.9C17.6 4.8 12 4.8 12 4.8s-5.6 0-8.2.3c-.4.1-1.2.1-2 .9C1.2 6.6 1 8 1 8S.8 9.6.8 11.2v1.5c0 1.7.2 3.3.2 3.3s.2 1.4.8 2c.8.8 1.8.8 2.3.9 1.7.2 8.9.2 8.9.2s5.6 0 8.2-.3c.4-.1 1.2-.1 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.5C23.2 9.6 23 8 23 8zM9.8 14.6V9.2l5.6 2.7-5.6 2.7z"
+          />
+        </svg>
+      </SocialIcon>
+    </nav>
+  );
+}
+
 function Footer() {
   return (
     <footer className="no-print border-t border-line bg-sage-deep text-cream">
@@ -108,6 +176,7 @@ function Footer() {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/75">
             {site.doctor}. {site.profession}. Atención presencial en Santander.
           </p>
+          <SocialLinks />
         </div>
         <div className="text-sm leading-relaxed text-cream/80">
           <p className="font-medium uppercase tracking-[0.16em] text-cream/55">
@@ -138,7 +207,11 @@ function Footer() {
             Director técnico responsable: {site.director}
           </p>
           <p className="mt-1">
-            Colegiado Nº {site.colegiado}. {site.colegio}.
+            {site.colegio}. Identificación profesional en el{" "}
+            <Link to="/aviso-legal" className="underline decoration-cream/30 hover:text-cream">
+              aviso legal
+            </Link>
+            .
           </p>
         </div>
       </div>
@@ -152,12 +225,6 @@ function Footer() {
             <Link to="/contacto" className="hover:text-cream">
               Cita previa
             </Link>
-            <a href={site.social.facebook} target="_blank" rel="noreferrer">
-              Facebook
-            </a>
-            <a href={site.social.youtube} target="_blank" rel="noreferrer">
-              YouTube
-            </a>
           </div>
         </div>
       </div>
